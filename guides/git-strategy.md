@@ -9,11 +9,24 @@
 
 ## Commit 时机
 
+### 本地 commit（自动，由 T2 执行）
+
 | 触发条件 | 动作 |
 |---------|------|
 | T2 验证单个任务 L0-L2 全 PASS | `git add` + `git commit`（一个任务一个 commit） |
 | T1 验收一个 batch L3 PASS | `git tag <batch-name>-done` |
 | 集成测试任务通过 | `git tag <module>-integrated` |
+
+本地多 commit 几次没有坏处，反而方便回溯。
+
+### 远端 push（需要人确认）
+
+| 触发条件 | 动作 |
+|---------|------|
+| 一个 batch 全部完成 + T1 验收通过 | `git push` |
+| 一个里程碑完成 | `git push --tags` |
+
+远端推送代表"这段工作对外可见"，需要你或 T1 明确触发。
 
 ## Commit Message 格式
 
@@ -49,11 +62,14 @@ main ← 只合并验证通过的代码
 
 简单项目可以直接在 main 上工作，但建议至少用 feature branch 隔离未完成的工作。
 
-## 谁负责 commit
+## 谁负责什么
 
-- **T3 不 commit**（提示词已明确禁止）
-- **你（人）commit**——在看到 T2 的 PASS 报告后执行
-- 未来可以让 T2 在验证通过后自动 commit（需要你授权）
+| 角色 | 本地 commit | 远端 push |
+|------|-----------|----------|
+| T3 | ❌ 不 commit | ❌ |
+| T2 | ✅ 验证 PASS 后自动 commit | ❌ |
+| T1 | ✅ 验收后打 tag | 可以（如授权） |
+| 你 | 随时可以 | ✅ 最终决定 |
 
 ## 回滚
 

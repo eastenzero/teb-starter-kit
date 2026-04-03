@@ -44,6 +44,15 @@ result: "PASS / PARTIAL / FAIL"
 recommendation: "可标记 done / 需修复后重提交 / 需 T1 审查"
 ```
 
+## 本地 Git Commit
+
+验证结果为 PASS 后，执行本地 commit：
+```
+git add -A
+git commit -m "<type>(<scope>): <简述> [task:<task-id>]"
+```
+不 push 到远端——远端推送由人或 T1 决定。
+
 ## 失败处理
 
 - T3 首次失败 → 给出**具体的失败原因和修复方向**，让 T3 换一种方式重试（不是重复同样的做法）
