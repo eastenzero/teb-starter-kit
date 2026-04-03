@@ -58,6 +58,7 @@ T3  Executor（便宜模型）     写代码、跑自检、写执行报告
 | `templates/_task.template.md` | T1 参考 | 任务文件标准格式 |
 | `templates/_report.template.md` | T3 参考 | 执行报告标准格式 |
 | `guides/verification-guide.md` | 你自己 | L0-L3 验证层级说明和示例 |
+| `guides/git-strategy.md` | 你自己 | 什么时候 commit、分支策略、回滚 |
 | `antipatterns.md` | 所有 AI | 错题本 |
 
 ## 核心理念
