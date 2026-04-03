@@ -6,6 +6,7 @@ type: "feature"           # feature / bugfix / integration-test
 status: "pending"         # pending → in_progress → verify → done / failed / blocked
 tier: "T3"                # T0=架构设计 T1=任务分解 T2=分发验证 T3=具体执行
 priority: "medium"        # high / medium / low
+risk: "medium"            # high / medium / low（high 优先安排人工审查）
 foundation: false         # true = 地基模块，其他模块依赖它，必须优先完成
 
 # ===== 作用域（防止 AI 越界）=====
